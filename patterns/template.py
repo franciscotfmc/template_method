@@ -26,7 +26,7 @@ class DocumentMaker:
 class HtmlDocument(DocumentMaker):
 
   def make_header(self):
-    return "<html><head><title>Template Method</title></head>"
+    return "<html><head><meta http-equiv='Content-Type' content='text/html; charset=utf-8' /><title>Template Method</title></head>"
 
   def make_body(self):
     content = "<h1>Relatório de Transações</h1><br><ul>"
