@@ -14,8 +14,10 @@ def main():
   
   if args.format == "html":
     document = HtmlDocument(items)
-  else:
+  elif args.format == "csv":
     document = CsvDocument(items)
+  else:
+    exit("-- Specify a valid output")
 
   output = document.generate_doc()
   f_output = open("output.{0}".format(args.format),"w")
