@@ -39,3 +39,18 @@ class HtmlDocument(DocumentMaker):
   def make_footer(self):
     return "<hr>Total: %s </body></html>" % reduce(lambda x,y : x + y, [t.value for t in self.transactions])
 
+class CsvDocument(DocumentMaker):
+
+  def make_header(self):
+    return "Descrição;Valor"
+
+  def make_body(self):
+    content = ""
+    for t in self.transactions:
+      content += "%s;%s" % (t.description, t.value)
+    
+    return content
+
+  def make_footer(self):
+    return "Total;%s" % reduce(lambda x,y : x + y, [t.value for t in self.transactions])
+
