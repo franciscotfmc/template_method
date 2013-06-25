@@ -42,12 +42,12 @@ class HtmlDocument(DocumentMaker):
 class CsvDocument(DocumentMaker):
 
   def make_header(self):
-    return "Descrição;Valor"
+    return "Descrição;Valor\n"
 
   def make_body(self):
     content = ""
     for t in self.transactions:
-      content += "%s;%s" % (t.description, t.value)
+      content += "%s;%s\n" % (t.description, t.value)
     
     return content
 
