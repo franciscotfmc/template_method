@@ -2,16 +2,18 @@
 #coding: utf-8
 
 import argparse
+import locale
 from patterns.template import HtmlDocument, CsvDocument
 from transaction import Product
 
 def main():
+  locale.setlocale(locale.LC_ALL, '')
   parser = argparse.ArgumentParser()
   parser.add_argument('--format', help='the output format can be html or csv')
   args = parser.parse_args()
 
   items = [Product("Gasolina", 3.20), Product("Gás Natural", 2.10), Product("Diesel", 2.20)]
-  
+
   if args.format == "html":
     document = HtmlDocument(items)
   elif args.format == "csv":
